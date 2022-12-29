@@ -20,6 +20,8 @@ public class CubeScript : MonoBehaviour
 
     Rigidbody2D cubeRigid;
 
+    bool isPaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,14 +46,30 @@ public class CubeScript : MonoBehaviour
     }
 
     void Update() { 
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (isPaused) {
+                Time.timeScale = 1;
+                isPaused = false;
+            } else {
+                Time.timeScale = 0;
+                isPaused = true;
+            }
+            //Application.Quit();
+        }
+        if (isPaused) return;
+        
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < 0.001f) {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, cubeRigid.gravityScale*jumpForce), ForceMode2D.Impulse);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.F)) {
             FlipGravity();
         }
         
+        if (Input.GetKeyDown(KeyCode.R)) {
+            Reset();
+            //Application.Quit();
+        }
     }
 
     public void FlipGravity() {
