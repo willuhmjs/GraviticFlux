@@ -351,8 +351,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Move and jump using the WASD keys.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd6936f2cac015245a55d542f085b305, type: 2}
-  m_sharedMaterial: {fileID: 3594220177114082715, guid: dd6936f2cac015245a55d542f085b305, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -736,8 +736,8 @@ MonoBehaviour:
 
     Press Esc to pause the game.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd6936f2cac015245a55d542f085b305, type: 2}
-  m_sharedMaterial: {fileID: 3594220177114082715, guid: dd6936f2cac015245a55d542f085b305, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -871,8 +871,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: That doesn't look reachable. Press the spacebar to flip gravity.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd6936f2cac015245a55d542f085b305, type: 2}
-  m_sharedMaterial: {fileID: 3594220177114082715, guid: dd6936f2cac015245a55d542f085b305, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
