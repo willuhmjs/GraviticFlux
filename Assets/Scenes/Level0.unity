@@ -670,7 +670,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: That doesn't look reachable. Press F to flip gravity.
+  m_Text: That doesn't look reachable. Press the spacebar to flip gravity.
 --- !u!222 &1820864132
 CanvasRenderer:
   m_ObjectHideFlags: 0

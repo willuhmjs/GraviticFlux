@@ -62,7 +62,7 @@ public class CubeScript : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, cubeRigid.gravityScale*jumpForce), ForceMode2D.Impulse);
         }
 
-        if (Input.GetKeyDown(KeyCode.F)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             FlipGravity();
         }
         
