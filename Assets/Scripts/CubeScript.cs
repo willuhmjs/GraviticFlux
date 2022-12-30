@@ -42,7 +42,7 @@ public class CubeScript : MonoBehaviour
         // move the object forward or backwards according to the horizontal axis
         transform.Translate(new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * 5 * cubeRigid.gravityScale,0,0));
         spriteClamp.movementLimiter(transform.position, gameObject.transform);
-        spriteClamp.movementLimiter(transform.position, Camera.main.transform);
+		cameraClamp.movementLimiter(transform.position, Camera.main.transform);
     }
 
     void Update() { 
