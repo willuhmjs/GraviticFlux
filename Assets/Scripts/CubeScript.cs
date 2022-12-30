@@ -11,6 +11,8 @@ public class CubeScript : MonoBehaviour
 	public float WORLD_MAX_X =  20.0f;
 	public float WORLD_MAX_Y =  7.5f;
 
+    public bool cameraClampEnabled = true;
+
 	// Utility objects to limit the positions
 	PositionClamp spriteClamp;
 	PositionClamp cameraClamp;
