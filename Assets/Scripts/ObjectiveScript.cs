@@ -29,7 +29,7 @@ public class ObjectiveScript : MonoBehaviour
         }
     }
 
-    void NextLevel() {
+    public void NextLevel() {
         if (currentScene < numScenes - 1) {
             SceneManager.LoadScene("Level" + (currentScene + 1));
         } else {

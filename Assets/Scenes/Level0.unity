@@ -421,6 +421,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a63b760a3a80c14d97d2fc381bd8ed5, type: 3}
+--- !u!114 &272388861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 275690071733639169, guid: ec77ffc6892773e49b5eda8f0dd31825, type: 3}
+  m_PrefabInstance: {fileID: 720374528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f15a02906b51145a8e9e78b4584494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &446194595
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +626,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 454112117}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 272388861}
+        m_TargetAssemblyTypeName: ObjectiveScript, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &454112117
 MonoBehaviour:
   m_ObjectHideFlags: 0
