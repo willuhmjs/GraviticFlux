@@ -58,7 +58,7 @@ public class CubeScript : MonoBehaviour
         }
         if (isPaused) return;
         
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < 0.001f) {
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < 0.001f) {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, cubeRigid.gravityScale*jumpForce), ForceMode2D.Impulse);
         }
 
