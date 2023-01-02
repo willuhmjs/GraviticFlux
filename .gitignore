@@ -74,5 +74,5 @@ crashlytics-build.properties
 # TextMesh Pro files
 /[Aa]ssets/TextMesh*Pro*/Resources/*.asset
 
-*.DS_STORE
+# DS_Store
 *.DS_Store
