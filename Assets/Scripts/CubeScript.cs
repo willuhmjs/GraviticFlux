@@ -80,9 +80,9 @@ public class CubeScript : MonoBehaviour
         if (Camera.main.transform.rotation.z == 0) 
         { 
             rotation = -180; 
-            cubeRigid.gravityScale = -1;            
+            cubeRigid.gravityScale = -cubeRigid.gravityScale;            
         } else if (Camera.main.transform.rotation.z == 1) {
-            cubeRigid.gravityScale = 1;            
+            cubeRigid.gravityScale = Mathf.Abs(cubeRigid.gravityScale);            
         }
         cubeRigid.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
         Camera.main.TweenRotationZ(rotation, 0.25f);
