@@ -29,7 +29,6 @@ public class ObjectiveScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.name == "Player") {
-            gameObject.TweenSpriteRendererAlpha(0, 0.25f);
             NextLevel(0.75f);
         }
     }
