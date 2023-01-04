@@ -11,6 +11,7 @@ public class ObjectiveScript : MonoBehaviour
 
     GameObject transition;
     CanvasGroup canvasGroup;
+    Renderer rend;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class ObjectiveScript : MonoBehaviour
         transition = GameObject.Find("Transition");
         canvasGroup = transition.GetComponent<CanvasGroup>();
 
+        rend = GetComponent<Renderer>();
+
         if (currentScene != 0) {
             canvasGroup.alpha = 1;
             canvasGroup.TweenCanvasGroupAlpha(0, 1f);
@@ -29,6 +32,8 @@ public class ObjectiveScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.name == "Player") {
+            // make renderer inactive
+            rend.enabled = false;
             NextLevel(0.75f);
         }
     }
