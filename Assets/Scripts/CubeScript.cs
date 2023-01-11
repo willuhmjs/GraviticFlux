@@ -20,6 +20,11 @@ public class CubeScript : MonoBehaviour
 
     Rigidbody2D cubeRigid;
 
+    // audio playing
+    AudioSource audioSource;
+    public AudioClip jumpClip;
+    public AudioClip gravityClip;
+
     bool isPaused = false;
 
     // Start is called before the first frame update
@@ -35,6 +40,8 @@ public class CubeScript : MonoBehaviour
         startPos = transform.position;
 
         cubeRigid = GetComponent<Rigidbody2D>();
+    
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,10 +66,14 @@ public class CubeScript : MonoBehaviour
         if (isPaused) return;
         
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < 0.001f) {
+            audioSource.clip = jumpClip;
+            audioSource.Play();
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, cubeRigid.gravityScale*jumpForce), ForceMode2D.Impulse);
         }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
+            audioSource.clip = gravityClip;
+            audioSource.Play();
             FlipGravity();
         }
         
