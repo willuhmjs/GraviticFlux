@@ -12,6 +12,10 @@ public class ObjectiveScript : MonoBehaviour
     GameObject transition;
     CanvasGroup canvasGroup;
     Renderer rend;
+    AudioSource audioSource;
+
+    public AudioClip levelEnter;
+    public AudioClip levelComplete;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +26,15 @@ public class ObjectiveScript : MonoBehaviour
         transition = GameObject.Find("Transition");
         canvasGroup = transition.GetComponent<CanvasGroup>();
 
+        audioSource = GetComponent<AudioSource>();
+
         rend = GetComponent<Renderer>();
 
         if (currentScene != 0) {
             canvasGroup.alpha = 1;
             canvasGroup.TweenCanvasGroupAlpha(0, 1f);
+            audioSource.clip = levelEnter;
+            audioSource.Play();
         }
     }
 
@@ -43,6 +51,8 @@ public class ObjectiveScript : MonoBehaviour
     }
 
     public IEnumerator NextLevelIEnumerator(float transitionTime) {
+        audioSource.clip = levelComplete;
+        audioSource.Play();
         canvasGroup.TweenCanvasGroupAlpha(1, transitionTime);
         yield return new WaitForSeconds(transitionTime);
         if (currentScene < numScenes - 1) {
