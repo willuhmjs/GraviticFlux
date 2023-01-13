@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MusicPlayer : MonoBehaviour
 {
-    public AudioClip clipLevel0;
-    public AudioClip clipContinuing;
+    public AudioClip clipMainMenu;
+    public AudioClip clipLevels;
     AudioSource source;
     private static MusicPlayer instance = null;
     private bool isContinuingMusic = false;
@@ -31,14 +31,14 @@ public class MusicPlayer : MonoBehaviour
                 source.Stop();
                 isContinuingMusic = false;
             }
-            source.clip = clipLevel0;
+            source.clip = clipMainMenu;
             source.Play();
         }
         else
         {
             if(!isContinuingMusic)
             {
-                source.clip = clipContinuing;
+                source.clip = clipLevels;
                 source.Play();
                 isContinuingMusic = true;
             }

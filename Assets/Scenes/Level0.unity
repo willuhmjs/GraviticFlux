@@ -1574,20 +1574,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6123272065264868561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123272065264868566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2305cd91186a504c937d746f85a0a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clipLevel0: {fileID: 0}
-  clipContinuing: {fileID: 0}
 --- !u!82 &6123272065264868563
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1693,8 +1679,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6123272065264868560}
-  - component: {fileID: 6123272065264868561}
   - component: {fileID: 6123272065264868563}
+  - component: {fileID: 6123272065264868567}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: Untagged
@@ -1702,3 +1688,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6123272065264868567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123272065264868566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2305cd91186a504c937d746f85a0a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipMainMenu: {fileID: 8300000, guid: 7bad225153f0744b6bbcba96cbcda59a, type: 3}
+  clipLevels: {fileID: 8300000, guid: 5f964123105584ab698d01df18e19765, type: 3}
