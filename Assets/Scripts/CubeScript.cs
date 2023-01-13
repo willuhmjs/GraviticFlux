@@ -83,24 +83,26 @@ public class CubeScript : MonoBehaviour
         }
     }
 
-    public void FlipGravity() {
-        // do not rotate if flipping is in progress
-        if (Camera.main.transform.rotation.z != 0 && Camera.main.transform.rotation.z != 1) return;
+   public void FlipGravity() {
+    // do not rotate if flipping is in progress
+    if (Camera.main.transform.rotation.z != 0 && Camera.main.transform.rotation.z != 1) return;
 
-        float rotation = 0;
-        if (Camera.main.transform.rotation.z == 0) 
-        { 
-            rotation = -180; 
-            cubeRigid.gravityScale = -cubeRigid.gravityScale;            
-        } else if (Camera.main.transform.rotation.z == 1) {
-            cubeRigid.gravityScale = Mathf.Abs(cubeRigid.gravityScale);            
-        }
-        cubeRigid.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
-        Camera.main.TweenRotationZ(rotation, 0.25f);
+    float rotation = 0;
+    if (Camera.main.transform.rotation.z == 0) 
+    { 
+        rotation = -180; 
+        cubeRigid.gravityScale = -cubeRigid.gravityScale;            
+    } else if (Camera.main.transform.rotation.z == 1) {
+        cubeRigid.gravityScale = Mathf.Abs(cubeRigid.gravityScale);            
     }
+    // keep a small amount of y velocity using Mathf.Clamp
+    float yVelocity = Mathf.Clamp(cubeRigid.velocity.y, -1f, 1f);
+    cubeRigid.velocity = new Vector2(cubeRigid.velocity.x, yVelocity);
+    Camera.main.TweenRotationZ(rotation, 0.25f);
+}
 
     public void Reset() {
         transform.position = startPos;
         if (Camera.main.transform.rotation.z != 0) FlipGravity();
-    }    
+    }
 }
