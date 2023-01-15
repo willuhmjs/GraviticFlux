@@ -72,8 +72,6 @@ public class CubeScript : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            audioSource.clip = gravityClip;
-            audioSource.Play();
             FlipGravity();
         }
         
@@ -86,7 +84,8 @@ public class CubeScript : MonoBehaviour
    public void FlipGravity() {
     // do not rotate if flipping is in progress
     if (Camera.main.transform.rotation.z != 0 && Camera.main.transform.rotation.z != 1) return;
-
+    audioSource.clip = gravityClip;
+    audioSource.Play();
     float rotation = 0;
     if (Camera.main.transform.rotation.z == 0) 
     { 
