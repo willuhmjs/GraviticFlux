@@ -423,10 +423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TIME: 1.75
-  START_X: -3.02
-  END_X: 4.49
-  START_Y: 4
-  END_Y: 4
+  waypoints:
+  - {x: -3.02, y: 4, z: 0}
+  - {x: 4.49, y: 4, z: 0}
 --- !u!1 &1077968985
 GameObject:
   m_ObjectHideFlags: 0

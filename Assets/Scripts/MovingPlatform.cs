@@ -8,11 +8,9 @@ public class MovingPlatform : MonoBehaviour
 {
     public float TIME = 1.75f;
 
-    public float START_X;
-    public float END_X;
-
-    public float START_Y;
-    public float END_Y;
+    public Vector3[] waypoints;
+    private int currentWaypoint = 0;
+    private bool goingForward = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,17 +20,29 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // check to see if the object is at one end (start or end)
-        // tween it to the other end if so
-        if (transform.position.x == START_X && transform.position.y == START_Y)
+        // check to see if the object is at the current waypoint
+        // tween it to the next or previous waypoint if so
+        if (transform.position == waypoints[currentWaypoint])
         {
-            transform.TweenPositionX(END_X, TIME).SetEase(EaseType.Linear);
-            transform.TweenPositionY(END_Y, TIME).SetEase(EaseType.Linear);
-        }
-        else if (transform.position.x == END_X && transform.position.y == END_Y)
-        {
-            transform.TweenPositionX(START_X, TIME).SetEase(EaseType.Linear);
-            transform.TweenPositionY(START_Y, TIME).SetEase(EaseType.Linear);
+            if (currentWaypoint == waypoints.Length - 1 && goingForward)
+            {
+                goingForward = false;
+                currentWaypoint--;
+            }
+            else if (currentWaypoint == 0 && !goingForward)
+            {
+                goingForward = true;
+                currentWaypoint++;
+            }
+            else if (goingForward)
+            {
+                currentWaypoint++;
+            }
+            else
+            {
+                currentWaypoint--;
+            }
+            transform.TweenPosition(waypoints[currentWaypoint], TIME).SetEase(EaseType.Linear);
         }
     }
 
