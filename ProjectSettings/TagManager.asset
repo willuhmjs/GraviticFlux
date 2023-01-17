@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Spikes
+    uniqueID: 645959631
+    locked: 0
+  - name: SpikeOverride
+    uniqueID: 4057303109
+    locked: 0
+  - name: GravityIntensifier
+    uniqueID: 3280686873
+    locked: 0
+  - name: Transition
+    uniqueID: 2456463173
+    locked: 0
