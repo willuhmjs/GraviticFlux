@@ -24,9 +24,7 @@ public class CubeScript : MonoBehaviour
     AudioSource audioSource;
     public AudioClip jumpClip;
     public AudioClip gravityClip;
-
-    bool isPaused = false;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -52,19 +50,7 @@ public class CubeScript : MonoBehaviour
 		cameraClamp.movementLimiter(transform.position, Camera.main.transform);
     }
 
-    void Update() { 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (isPaused) {
-                Time.timeScale = 1;
-                isPaused = false;
-            } else {
-                Time.timeScale = 0;
-                isPaused = true;
-            }
-            //Application.Quit();
-        }
-        if (isPaused) return;
-        
+    void Update() {         
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < 0.001f) {
             audioSource.clip = jumpClip;
             audioSource.Play();
