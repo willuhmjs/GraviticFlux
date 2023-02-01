@@ -24,6 +24,8 @@ public class CubeScript : MonoBehaviour
     AudioSource audioSource;
     public AudioClip jumpClip;
     public AudioClip gravityClip;
+
+    public int startAngle = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class CubeScript : MonoBehaviour
         cubeRigid = GetComponent<Rigidbody2D>();
     
         audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -88,6 +91,7 @@ public class CubeScript : MonoBehaviour
 
     public void Reset() {
         transform.position = startPos;
-        if (Camera.main.transform.rotation.z != 0) FlipGravity();
+        if (Camera.main.transform.rotation.z != startAngle) FlipGravity();
+        cubeRigid.velocity = Vector2.zero;
     }
 }
