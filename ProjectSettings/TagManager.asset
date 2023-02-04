@@ -53,3 +53,6 @@ TagManager:
   - name: Transition
     uniqueID: 2456463173
     locked: 0
+  - name: PauseUI
+    uniqueID: 1414411501
+    locked: 0
