@@ -17,18 +17,6 @@ public class ButtonsScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ExitGame() {
         #if (UNITY_EDITOR || DEVELOPMENT_BUILD)
             Debug.Log(this.name+" : "+this.GetType()+" : "+System.Reflection.MethodBase.GetCurrentMethod().Name); 
