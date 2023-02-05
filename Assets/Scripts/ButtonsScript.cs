@@ -27,7 +27,6 @@ public class ButtonsScript : MonoBehaviour
             Application.Quit();
         #elif (UNITY_WEBGL)
             Application.ExternalEval("location.reload()");
-            Application.OpenURL("about:blank");
         #endif
     }
 
