@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -40,5 +40,10 @@ public class SettingsMenu : MonoBehaviour
         panels[activeTabIndex].gameObject.SetActive(false);
         panels[index].gameObject.SetActive(true);
         activeTabIndex = index;
+    }
+
+    public void GoToLevel(Button button) {
+        SceneManager.LoadScene(button.name);
+        ExitMenu();
     }
 }
