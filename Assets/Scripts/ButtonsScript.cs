@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 public class ButtonsScript : MonoBehaviour
 {
     private static ButtonsScript instance;
-    bool isPaused = false;
+    public GameObject settingsMenu;
     private void Awake()
     {
         if (instance != null)
@@ -31,8 +28,7 @@ public class ButtonsScript : MonoBehaviour
     }
 
     public void OpenSettingsMenu() {
-        isPaused = !isPaused;
-        Time.timeScale = isPaused ? 0 : 1;
-        Debug.Log("Open Settings Menu");
+        settingsMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 }
