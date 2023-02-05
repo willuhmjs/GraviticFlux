@@ -5,6 +5,7 @@ public class ButtonsScript : MonoBehaviour
     public GameObject settingsMenu;
     private void Awake()
     {
+        Debug.Log("Awake: " + this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
         if (instance != null)
         {
             Destroy(gameObject);
@@ -13,6 +14,17 @@ public class ButtonsScript : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    private void Update()
+    {        
+        if (FindObjectOfType<UnityEngine.EventSystems.EventSystem>() == null)
+        {
+            GameObject eventSystem = new GameObject("EventSystem");
+            eventSystem.AddComponent<UnityEngine.EventSystems.EventSystem>();
+            eventSystem.AddComponent<UnityEngine.EventSystems.StandaloneInputModule>();
+        }
+    }
+
 
     public void ExitGame() {
         #if (UNITY_EDITOR || DEVELOPMENT_BUILD)
