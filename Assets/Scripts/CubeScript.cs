@@ -79,7 +79,7 @@ public class CubeScript : MonoBehaviour
     if (Camera.main.transform.rotation.z == 0) 
     { 
         rotation = -180; 
-        cubeRigid.gravityScale = -cubeRigid.gravityScale;            
+        cubeRigid.gravityScale = -Mathf.Abs(cubeRigid.gravityScale);            
     } else if (Camera.main.transform.rotation.z == 1) {
         cubeRigid.gravityScale = Mathf.Abs(cubeRigid.gravityScale);            
     }
