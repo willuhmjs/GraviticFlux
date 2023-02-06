@@ -5,7 +5,6 @@ public class ButtonsScript : MonoBehaviour
     public GameObject settingsMenu;
     private void Awake()
     {
-        Debug.Log("Awake: " + this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
         if (instance != null)
         {
             Destroy(gameObject);
