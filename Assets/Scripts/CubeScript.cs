@@ -5,10 +5,10 @@ using ElRaccoone.Tweens;
 
 public class CubeScript: MonoBehaviour {
     public float jumpForce = 8;
-    public float WORLD_MIN_X = -7.5 f;
-    public float WORLD_MIN_Y = -5.5 f;
-    public float WORLD_MAX_X = 20.0 f;
-    public float WORLD_MAX_Y = 7.5 f;
+    public float WORLD_MIN_X = -7.5f;
+    public float WORLD_MIN_Y = -5.5f;
+    public float WORLD_MAX_X = 20.0f;
+    public float WORLD_MAX_Y = 7.5f;
 
     // Utility objects to limit the positions
     PositionClamp spriteClamp;
@@ -52,7 +52,7 @@ public class CubeScript: MonoBehaviour {
     }
 
     void Update() {
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(GetComponent < Rigidbody2D > ().velocity.y) < 0.001 f) {
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(GetComponent < Rigidbody2D > ().velocity.y) < 0.001f) {
             audioSource.clip = jumpClip;
             audioSource.Play();
             GetComponent < Rigidbody2D > ().AddForce(new Vector2(0, cubeRigid.gravityScale * jumpForce), ForceMode2D.Impulse);
