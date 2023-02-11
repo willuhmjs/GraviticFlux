@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ButtonToggler : MonoBehaviour
+public class ControlMapManager : MonoBehaviour
 {
     private Button button;
     private TMP_Text buttonText;
