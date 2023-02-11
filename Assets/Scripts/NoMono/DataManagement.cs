@@ -5,13 +5,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class DataManagement
 {
-    private static void SaveSettings(SettingsData data) {
+    public static void SaveSettings(SettingsData data) {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/settings.dat";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         formatter.Serialize(stream, data);
         stream.Close();
+
+        Debug.Log("Just saved with following values: " + data.latestLevel + " " + data.keybinds[PlayerAction.MoveLeft]);
     }
 
     public static SettingsData LoadSettings() {
@@ -21,9 +23,7 @@ public class DataManagement
             FileStream stream = new FileStream(path, FileMode.Open);
 
             // deseralize into new SettingsData object
-            SettingsData data = formatter.Deserialize(stream) as SettingsData;
-            SettingsData settingsData = new SettingsData();
-            settingsData.latestLevel = data.latestLevel;
+            SettingsData settingsData = formatter.Deserialize(stream) as SettingsData;
             stream.Close();
             return settingsData;
         } else {

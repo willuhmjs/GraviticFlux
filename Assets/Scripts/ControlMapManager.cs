@@ -8,12 +8,17 @@ public class ControlMapManager : MonoBehaviour
     private TMP_Text buttonText;
     private bool isSelected;
 
+    public PlayerAction playerAction;
+
     private void Start()
     {
         button = GetComponent<Button>();
         buttonText = GetComponentInChildren<TMP_Text>();
 
         button.onClick.AddListener(ToggleButton);
+
+        SettingsData data = DataManagement.LoadSettings();
+        buttonText.text = data.keybinds[playerAction].ToString();
     }
 
     private void Update()
@@ -29,6 +34,10 @@ public class ControlMapManager : MonoBehaviour
                     buttonText.text = key.ToString();
                     isSelected = false;
                     button.interactable = true;
+
+                    SettingsData data = DataManagement.LoadSettings();
+                    data.keybinds[playerAction] = key;
+                    DataManagement.SaveSettings(data);
                     break;
                 }
             }

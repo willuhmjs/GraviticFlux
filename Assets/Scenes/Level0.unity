@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5bc6f282ac3a848a04ba79cdb3c3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAction: 2
 --- !u!114 &96893038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,6 +1542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5bc6f282ac3a848a04ba79cdb3c3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAction: 0
 --- !u!114 &449621824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,7 +2028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A
+  m_text: asdasd
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 821e39c55f9c56342a6096ae05c49486, type: 2}
   m_sharedMaterial: {fileID: 8269903067516505002, guid: 821e39c55f9c56342a6096ae05c49486, type: 2}
@@ -3291,6 +3293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5bc6f282ac3a848a04ba79cdb3c3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAction: 3
 --- !u!114 &780219618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4568,6 +4571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5bc6f282ac3a848a04ba79cdb3c3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAction: 1
 --- !u!114 &1167739203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7472,6 +7476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5bc6f282ac3a848a04ba79cdb3c3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAction: 4
 --- !u!114 &2066000271
 MonoBehaviour:
   m_ObjectHideFlags: 0
