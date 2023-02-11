@@ -58,7 +58,6 @@ public class SettingsMenu : MonoBehaviour
     }
 
     void UpdateLevelButtons() {
-        DataManagement.SaveLatestLevel();
         int latestLevel = DataManagement.LoadSettings().latestLevel;
         for (int i = 0; i < levelButtons.Length; i++) {
             if (i <= latestLevel) {

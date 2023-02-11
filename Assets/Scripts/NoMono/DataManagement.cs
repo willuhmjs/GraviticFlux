@@ -12,7 +12,6 @@ public class DataManagement
 
         formatter.Serialize(stream, data);
         stream.Close();
-        Debug.Log("Saved settings to " + path +". Latest level: " + data.latestLevel);
     }
 
     public static SettingsData LoadSettings() {

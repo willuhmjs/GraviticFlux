@@ -56,7 +56,6 @@ public class ObjectiveScript : MonoBehaviour
         audioSource.Play();
         canvasGroup.TweenCanvasGroupAlpha(1, transitionTime);
         yield return new WaitForSeconds(transitionTime);
-        //dataManagement.latestLevel++;
         if (currentScene < numScenes - 1) {
             SceneManager.LoadScene("Level" + (currentScene + 1));
         } else {
