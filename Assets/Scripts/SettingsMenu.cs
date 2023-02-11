@@ -8,6 +8,10 @@ public class SettingsMenu : MonoBehaviour
     public Button[] tabs;
     public Image[] panels;
     private int activeTabIndex = 0;
+    private DataManagement dataManagement;
+
+    // stores the buttons in the LevelSelectPanel child of this gameobject
+    public Button[] levelButtons;
 
     private void Awake()
     {
@@ -18,12 +22,16 @@ public class SettingsMenu : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        dataManagement = gameObject.GetComponent<DataManagement>();
+        levelButtons = GameObject.Find("LevelSelectPanel").GetComponentsInChildren<Button>();
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        UpdateLevelButtons();
         SwitchTab(0);
         gameObject.SetActive(false);
     }
@@ -35,6 +43,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void SwitchTab(int index)
     {
+        UpdateLevelButtons();
         tabs[activeTabIndex].interactable = true;
         tabs[index].interactable = false;
         panels[activeTabIndex].gameObject.SetActive(false);
@@ -45,5 +54,19 @@ public class SettingsMenu : MonoBehaviour
     public void GoToLevel(Button button) {
         SceneManager.LoadScene(button.name);
         ExitMenu();
+    }
+
+    void OnEnable() {
+        UpdateLevelButtons();
+    }
+
+    void UpdateLevelButtons() {
+        for (int i = 0; i < levelButtons.Length; i++) {
+            if (i <= dataManagement.GetLatestLevel()) {
+                levelButtons[i].interactable = true;
+            } else {
+                levelButtons[i].interactable = false;
+            }
+        }
     }
 }

@@ -20,6 +20,7 @@ public class ObjectiveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         currentScene = SceneManager.GetActiveScene().buildIndex;
         numScenes = SceneManager.sceneCountInBuildSettings;
         
@@ -55,6 +56,7 @@ public class ObjectiveScript : MonoBehaviour
         audioSource.Play();
         canvasGroup.TweenCanvasGroupAlpha(1, transitionTime);
         yield return new WaitForSeconds(transitionTime);
+        //dataManagement.latestLevel++;
         if (currentScene < numScenes - 1) {
             SceneManager.LoadScene("Level" + (currentScene + 1));
         } else {
