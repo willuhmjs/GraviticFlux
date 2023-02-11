@@ -41,6 +41,7 @@ public class CubeScript: MonoBehaviour {
 
         audioSource = GetComponent < AudioSource > ();
 
+        DataManagement.SaveLatestLevel();
     }
 
     // Update is called once per frame

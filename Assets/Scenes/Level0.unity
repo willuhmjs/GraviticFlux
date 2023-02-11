@@ -5845,7 +5845,6 @@ GameObject:
   - component: {fileID: 715837154470212081}
   - component: {fileID: 715837154470212082}
   - component: {fileID: 715837154470212086}
-  - component: {fileID: 715837154470212088}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -5893,18 +5892,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &715837154470212088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715837154470212083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 498d247c7356ce64cb21e480c57d6cb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &715837154711687218
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class ButtonsScript : MonoBehaviour
 
 
     public void ExitGame() {
+        DataManagement.SaveLatestLevel();
         #if (UNITY_EDITOR)
             UnityEditor.EditorApplication.isPlaying = false;
         #elif (UNITY_STANDALONE) 
