@@ -31,8 +31,7 @@ public class ButtonsScript : MonoBehaviour
         #elif (UNITY_STANDALONE) 
             Application.Quit();
         #elif (UNITY_WEBGL)
-            Application.ExternalEval($"alert('{Application.persistentDataPath}');");
-            //Application.ExternalEval("location.reload()");
+            Application.ExternalEval("location.reload()");
         #endif
     }
 
