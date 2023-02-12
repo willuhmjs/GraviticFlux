@@ -20,6 +20,11 @@ public class ControlMapManager : MonoBehaviour
     
     void OnEnable() => UpdateFromSettings();
 
+    void OnDisable() {
+        button.interactable = true; 
+        isSelected = false; 
+    }
+
     void UpdateFromSettings() {
         SettingsData data = DataManagement.LoadSettings();
         if (buttonText) {
@@ -47,7 +52,7 @@ public class ControlMapManager : MonoBehaviour
                     break;
                 }
             }
-        }
+        } else UpdateFromSettings();
     }
 
     private void ToggleButton()

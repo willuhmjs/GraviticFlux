@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -73,5 +74,18 @@ public class SettingsMenu : MonoBehaviour
         DataManagement.SaveSettings(new SettingsData());
         SceneManager.LoadScene("Level0");
         ExitMenu();
+    }
+
+    // ControlMapManager is for edited buttons so this has to occur here
+    public void ResetControls() {
+        SettingsData data = DataManagement.LoadSettings();
+        data.controls = new Dictionary<PlayerAction, KeyCode>() {
+            {PlayerAction.MoveLeft, KeyCode.A},
+            {PlayerAction.MoveRight, KeyCode.D},
+            {PlayerAction.Jump, KeyCode.W},
+            {PlayerAction.FlipGravity, KeyCode.Space},
+            {PlayerAction.Reset, KeyCode.R}
+        };
+        DataManagement.SaveSettings(data);
     }
 }
