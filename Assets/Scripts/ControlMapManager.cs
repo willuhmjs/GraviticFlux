@@ -22,7 +22,9 @@ public class ControlMapManager : MonoBehaviour
 
     void UpdateFromSettings() {
         SettingsData data = DataManagement.LoadSettings();
-        buttonText.text = data.controls[playerAction].ToString();
+        if (buttonText) {
+            buttonText.text = data.controls[playerAction].ToString();
+        }
     }
 
     private void Update()
