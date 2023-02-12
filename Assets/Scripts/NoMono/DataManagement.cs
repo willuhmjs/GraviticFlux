@@ -12,8 +12,6 @@ public class DataManagement
 
         formatter.Serialize(stream, data);
         stream.Close();
-
-        Debug.Log("Just saved with following values: " + data.latestLevel + " " + data.keybinds[PlayerAction.MoveLeft]);
     }
 
     public static SettingsData LoadSettings() {
@@ -27,7 +25,6 @@ public class DataManagement
             stream.Close();
             return settingsData;
         } else {
-            Debug.LogError("Save file not found in " + path);
             return new SettingsData();
         }
     }

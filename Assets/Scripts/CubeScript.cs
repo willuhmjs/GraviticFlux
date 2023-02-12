@@ -26,6 +26,8 @@ public class CubeScript: MonoBehaviour {
 
     public int startAngle = 0;
 
+    SettingsData settings;
+
     // Start is called before the first frame update
     void Start() {
         // set up PositionClamp to limit sprite position within world boundaries
@@ -42,30 +44,45 @@ public class CubeScript: MonoBehaviour {
         audioSource = GetComponent < AudioSource > ();
 
         DataManagement.SaveLatestLevel();
+        settings = DataManagement.LoadSettings();
     }
 
     // Update is called once per frame
     void FixedUpdate() {
+        settings = DataManagement.LoadSettings();
+
         // move the object forward or backwards according to the horizontal axis
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * 5 * cubeRigid.gravityScale, 0, 0));
+        if (Input.GetKey(settings.controls[PlayerAction.MoveLeft])) {
+            transform.Translate(new Vector3(-Time.deltaTime * 4.2f * Mathf.Sign(cubeRigid.gravityScale), 0, 0));
+        } else if (Input.GetKey(settings.controls[PlayerAction.MoveRight])) {
+            transform.Translate(new Vector3(Time.deltaTime * 4.2f * Mathf.Sign(cubeRigid.gravityScale), 0, 0));
+        }
+
+        if (Input.GetKeyUp(settings.controls[PlayerAction.MoveLeft])) {
+           // add a bit of velocity to the left to make the cube feel more responsive
+            GetComponent < Rigidbody2D > ().velocity = new Vector2(-0.5f, GetComponent < Rigidbody2D > ().velocity.y);
+        } else if (Input.GetKeyUp(settings.controls[PlayerAction.MoveRight])) {
+            // add a bit of velocity to the right to make the cube feel more responsive
+            GetComponent < Rigidbody2D > ().velocity = new Vector2(0.5f, GetComponent < Rigidbody2D > ().velocity.y);
+        }
+        
         spriteClamp.movementLimiter(transform.position, gameObject.transform);
         cameraClamp.movementLimiter(transform.position, Camera.main.transform);
     }
 
     void Update() {
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(GetComponent < Rigidbody2D > ().velocity.y) < 0.001f) {
+        if ((Input.GetKeyDown(settings.controls[PlayerAction.Jump])) && Mathf.Abs(GetComponent < Rigidbody2D > ().velocity.y) < 0.001f) {
             audioSource.clip = jumpClip;
             audioSource.Play();
             GetComponent < Rigidbody2D > ().AddForce(new Vector2(0, cubeRigid.gravityScale * jumpForce), ForceMode2D.Impulse);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(settings.controls[PlayerAction.FlipGravity])) {
             FlipGravity();
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(settings.controls[PlayerAction.Reset])) {
             Reset();
-            //Application.Quit();
         }
     }
 

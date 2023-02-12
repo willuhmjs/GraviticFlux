@@ -17,8 +17,10 @@ public class ControlMapManager : MonoBehaviour
 
         button.onClick.AddListener(ToggleButton);
 
+        // load settings with datamangement and SettingsData
         SettingsData data = DataManagement.LoadSettings();
-        buttonText.text = data.keybinds[playerAction].ToString();
+        buttonText.text = data.controls[playerAction].ToString();
+        
     }
 
     private void Update()
@@ -36,7 +38,7 @@ public class ControlMapManager : MonoBehaviour
                     button.interactable = true;
 
                     SettingsData data = DataManagement.LoadSettings();
-                    data.keybinds[playerAction] = key;
+                    data.controls[playerAction] = key;
                     DataManagement.SaveSettings(data);
                     break;
                 }
