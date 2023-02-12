@@ -14,13 +14,15 @@ public class ControlMapManager : MonoBehaviour
     {
         button = GetComponent<Button>();
         buttonText = GetComponentInChildren<TMP_Text>();
-
         button.onClick.AddListener(ToggleButton);
+        UpdateFromSettings();
+    }
+    
+    void OnEnable() => UpdateFromSettings();
 
-        // load settings with datamangement and SettingsData
+    void UpdateFromSettings() {
         SettingsData data = DataManagement.LoadSettings();
         buttonText.text = data.controls[playerAction].ToString();
-        
     }
 
     private void Update()

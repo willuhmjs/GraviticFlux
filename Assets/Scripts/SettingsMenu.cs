@@ -67,4 +67,11 @@ public class SettingsMenu : MonoBehaviour
             }
         }
     }
+
+
+    public void ResetGame() {
+        DataManagement.SaveSettings(new SettingsData());
+        SceneManager.LoadScene("Level0");
+        ExitMenu();
+    }
 }
