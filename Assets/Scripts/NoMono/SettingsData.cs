@@ -10,6 +10,12 @@ public enum PlayerAction
     Reset
 }
 
+public enum Achievements {
+    MenuMaverick,
+    Gravitic,
+    Mastermind
+}
+
 [System.Serializable]
 public class SettingsData
 {
@@ -22,4 +28,10 @@ public class SettingsData
         {PlayerAction.FlipGravity, KeyCode.Space},
         {PlayerAction.Reset, KeyCode.R}
     };
+
+    List<Achievements> achievements {get;} = new List<Achievements>();
+
+    public void AddAchievement(Achievements achievement) {
+        if (!achievements.Contains(achievement)) achievements.Add(achievement);
+    }
 }
