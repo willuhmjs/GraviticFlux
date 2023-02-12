@@ -23,7 +23,7 @@ public class SettingsMenu : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        levelButtons = GameObject.Find("LevelSelectPanel").GetComponentsInChildren<Button>();
+        levelButtons = GameObject.Find("LevelSelectArea").GetComponentsInChildren<Button>();
     }
 
 
