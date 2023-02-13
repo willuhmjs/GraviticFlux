@@ -52,19 +52,13 @@ public class CubeScript: MonoBehaviour {
         settings = DataManagement.LoadSettings();
 
         // move the object forward or backwards according to the horizontal axis
+        float horizontal = 0.0f;
         if (Input.GetKey(settings.controls[PlayerAction.MoveLeft])) {
-            transform.Translate(new Vector3(-Time.deltaTime * 4.2f * Mathf.Sign(cubeRigid.gravityScale), 0, 0));
+            horizontal = 1.0f;
         } else if (Input.GetKey(settings.controls[PlayerAction.MoveRight])) {
-            transform.Translate(new Vector3(Time.deltaTime * 4.2f * Mathf.Sign(cubeRigid.gravityScale), 0, 0));
+            horizontal = -1.0f;
         }
-
-        if (Input.GetKeyUp(settings.controls[PlayerAction.MoveLeft])) {
-           // add a bit of velocity to the left to make the cube feel more responsive
-            GetComponent < Rigidbody2D > ().velocity = new Vector2(-0.5f, GetComponent < Rigidbody2D > ().velocity.y);
-        } else if (Input.GetKeyUp(settings.controls[PlayerAction.MoveRight])) {
-            // add a bit of velocity to the right to make the cube feel more responsive
-            GetComponent < Rigidbody2D > ().velocity = new Vector2(0.5f, GetComponent < Rigidbody2D > ().velocity.y);
-        }
+        transform.Translate(new Vector3(horizontal * 4.2f * Time.deltaTime * Mathf.Sign(cubeRigid.gravityScale), 0, 0));
         
         spriteClamp.movementLimiter(transform.position, gameObject.transform);
         cameraClamp.movementLimiter(transform.position, Camera.main.transform);
