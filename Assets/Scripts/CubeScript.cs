@@ -106,6 +106,7 @@ public class CubeScript: MonoBehaviour {
     }
 
     public void Reset() {
+        if (Time.timeScale == 0) return;
         transform.position = startPos;
         if (Camera.main.transform.rotation.z != startAngle) FlipGravity();
         cubeRigid.velocity = Vector2.zero;
