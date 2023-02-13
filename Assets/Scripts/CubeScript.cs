@@ -53,10 +53,14 @@ public class CubeScript: MonoBehaviour {
 
         // move the object forward or backwards according to the horizontal axis
         float horizontal = 0.0f;
+        float deceleration = 0.1f;
+
         if (Input.GetKey(settings.controls[PlayerAction.MoveLeft])) {
-            horizontal = 1.0f;
-        } else if (Input.GetKey(settings.controls[PlayerAction.MoveRight])) {
             horizontal = -1.0f;
+        } else if (Input.GetKey(settings.controls[PlayerAction.MoveRight])) {
+            horizontal = 1.0f;
+        } else {
+            horizontal = Mathf.Lerp(horizontal, 0, deceleration);
         }
         transform.Translate(new Vector3(horizontal * 4.2f * Time.deltaTime * Mathf.Sign(cubeRigid.gravityScale), 0, 0));
         
