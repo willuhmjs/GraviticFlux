@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5894439400838622059}
   - component: {fileID: 5894439400838622056}
   - component: {fileID: 124084489684528293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -107,6 +107,7 @@ MonoBehaviour:
   WORLD_MAX_Y: 7.5
   jumpClip: {fileID: 8300000, guid: b9a82d7c1e91c44caaf9eb10deb0d2d9, type: 3}
   gravityClip: {fileID: 8300000, guid: bbd9ab7fe90634efa9a360a63b572737, type: 3}
+  startAngle: 0
 --- !u!61 &5894439400838622059
 BoxCollider2D:
   m_ObjectHideFlags: 0

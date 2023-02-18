@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5c1f4490602624b9dd607a9180407b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TIME: 1.2
+  travelSpeed: 3
   waypoints:
   - {x: 4.455, y: 4.1319, z: 0}
   - {x: 4.455, y: 0.1319, z: 0}
@@ -1934,7 +1934,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2126205227
 PrefabInstance:

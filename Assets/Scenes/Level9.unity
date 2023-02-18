@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5c1f4490602624b9dd607a9180407b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TIME: 4
+  travelSpeed: 3
   waypoints:
   - {x: -8, y: 5, z: 0}
   - {x: 0, y: 0, z: 0}

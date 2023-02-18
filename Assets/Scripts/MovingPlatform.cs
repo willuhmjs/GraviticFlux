@@ -6,16 +6,11 @@ using ElRaccoone.Tweens.Core;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public float TIME = 1.75f;
+    public float travelSpeed = 5f;
 
     public Vector3[] waypoints;
     private int currentWaypoint = 0;
     private bool goingForward = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -42,7 +37,15 @@ public class MovingPlatform : MonoBehaviour
             {
                 currentWaypoint--;
             }
-            transform.TweenPosition(waypoints[currentWaypoint], TIME).SetEase(EaseType.Linear);
+
+            // calculate the distance to the next waypoint
+            float distanceToNextWaypoint = Vector3.Distance(transform.position, waypoints[currentWaypoint]);
+
+            // calculate the duration of the Tween based on the distance and travel speed
+            float duration = distanceToNextWaypoint / travelSpeed;
+
+            // Tween the platform to the next waypoint with the calculated duration
+            transform.TweenPosition(waypoints[currentWaypoint], duration).SetEase(EaseType.Linear);
         }
     }
 

@@ -26,6 +26,9 @@ public class CubeScript: MonoBehaviour {
 
     public int startAngle = 0;
 
+    public bool gravityFlipCooldown = false;
+    bool isOnCooldown = false;
+
     SettingsData settings;
 
     // Start is called before the first frame update
@@ -69,14 +72,17 @@ public class CubeScript: MonoBehaviour {
     }
 
     void Update() {
-        if ((Input.GetKeyDown(settings.controls[PlayerAction.Jump])) && Mathf.Abs(GetComponent < Rigidbody2D > ().velocity.y) < 0.001f) {
+        // still jump if player is a child of a moving platform
+        if ((Input.GetKeyDown(settings.controls[PlayerAction.Jump])) && (Mathf.Abs(cubeRigid.velocity.y) < 0.001f || transform.parent != null)) {
+            if (transform.parent != null) cubeRigid.velocity = new Vector2(cubeRigid.velocity.x, 0f);
             audioSource.clip = jumpClip;
             audioSource.Play();
-            GetComponent < Rigidbody2D > ().AddForce(new Vector2(0, cubeRigid.gravityScale * jumpForce), ForceMode2D.Impulse);
+           cubeRigid.AddForce(new Vector2(0, cubeRigid.gravityScale * jumpForce), ForceMode2D.Impulse);
         }
 
         if (Input.GetKeyDown(settings.controls[PlayerAction.FlipGravity])) {
-            FlipGravity();
+            Debug.Log("GetKeyDown reports: " + isOnCooldown);
+            if (!isOnCooldown) FlipGravity();
         }
 
         if (Input.GetKeyDown(settings.controls[PlayerAction.Reset])) {
@@ -86,6 +92,8 @@ public class CubeScript: MonoBehaviour {
 
    public void FlipGravity() {
     // do not rotate if flipping is in progress
+    Debug.Log("FlipGravity reports ioc:" + isOnCooldown + " gfc: " + gravityFlipCooldown);
+    if (gravityFlipCooldown) isOnCooldown = true;
     if (Camera.main.transform.rotation.z != 0 && Camera.main.transform.rotation.z != 1) return;
     audioSource.clip = gravityClip;
     audioSource.Play();
@@ -96,14 +104,21 @@ public class CubeScript: MonoBehaviour {
         cubeRigid.gravityScale = -Mathf.Abs(cubeRigid.gravityScale);            
     } else if (Camera.main.transform.rotation.z == 1) {
         cubeRigid.gravityScale = Mathf.Abs(cubeRigid.gravityScale);            
-        }
+    }
         // keep a small amount of y velocity using Mathf.Clamp
         float yVelocity = Mathf.Clamp(cubeRigid.velocity.y, -1f, 1f);
         cubeRigid.velocity = new Vector2(cubeRigid.velocity.x, yVelocity);
         Camera.main.TweenRotationZ(rotation, 0.25f);
+        if (gravityFlipCooldown) Invoke("CooldownFalse", 1.5f);
+    }
+
+    void CooldownFalse() {
+        isOnCooldown = false;
     }
 
     public void Reset() {
+        CooldownFalse();
+        transform.SetParent(null);
         if (Time.timeScale == 0) return;
         transform.position = startPos;
         if (Camera.main.transform.rotation.z != startAngle) FlipGravity();
