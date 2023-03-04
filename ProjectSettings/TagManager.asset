@@ -51,6 +51,9 @@ TagManager:
   - name: GravityIntensifier
     uniqueID: 3280686873
     locked: 0
+  - name: IgnoreLavaLight
+    uniqueID: 943285695
+    locked: 0
   - name: Transition
     uniqueID: 2456463173
     locked: 0
