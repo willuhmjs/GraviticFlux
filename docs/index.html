@@ -3,24 +3,42 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Gravitic Flux</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <!-- Primary Meta Tags -->
+    <title>Gravitic Flux</title>
+    <meta name="title" content="Gravitic Flux">
+    <meta name="description" content="A puzzle-platformer made in Unity. Play it in your browser!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://willuhmjs.github.io/GraviticFlux/">
+    <meta property="og:title" content="Gravitic Flux">
+    <meta property="og:description" content="A puzzle-platformer made in Unity. Play it in your browser!">
+    <meta property="og:image" content="https://willuhmjs.github.io/GraviticFlux/game_preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://willuhmjs.github.io/GraviticFlux/">
+    <meta property="twitter:title" content="Gravitic Flux">
+    <meta property="twitter:description" content="A puzzle-platformer made in Unity. Play it in your browser!">
+    <meta property="twitter:image" content="https://willuhmjs.github.io/GraviticFlux/game_preview.png">
+
+    <!-- stylesheet -->
     <link rel="stylesheet" href="TemplateData/style.css">
+
+    <!-- Color tag -->
+    <meta name="theme-color" content="#313031">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1920 height=1080></canvas>
       <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Gravitic Flux</div>
       </div>
     </div>
     <script>
@@ -62,7 +80,7 @@
         frameworkUrl: buildUrl + "/Gravitic Flux.framework.js",
         codeUrl: buildUrl + "/Gravitic Flux.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Gravitic Flux",
+        companyName: "William Faircloth",
         productName: "Gravitic Flux",
         productVersion: "1.0",
         showBanner: unityShowBanner,
@@ -73,7 +91,7 @@
       // Set this to false if you want to decouple this synchronization from
       // happening inside the engine, and you would instead like to size up
       // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+      // config.matchhttps://quizlet.com/17508998/amsco-apush-chapter-13-flash-cards/WebGLToCanvasSize = false;
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -89,12 +107,11 @@
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
 
-        unityShowBanner('WebGL builds are not supported on mobile devices.');
+        unityShowBanner('This game is not supported on mobile devices.');
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "1920px";
-        canvas.style.height = "1080px";
+        canvas.style.maxWidth = "80vw";
       }
 
       loadingBar.style.display = "block";
